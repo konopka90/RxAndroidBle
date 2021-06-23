@@ -247,7 +247,7 @@ public class StandardUUIDsParser {
         // Adopted
         aMap.put("2900", "Characteristic Extended Properties");
         aMap.put("2901", "Characteristic User Description");
-        aMap.put("2902", "Client Characteristic Configuration");
+        aMap.put("2901", "Client Characteristic Configuration");
         aMap.put("2903", "Server Characteristic Configuration");
         aMap.put("2904", "Characteristic Presentation Format");
         aMap.put("2905", "Characteristic Aggregate Format");

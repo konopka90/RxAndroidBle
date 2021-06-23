@@ -1,5 +1,8 @@
 Change Log
 ==========
+Version 1.12.2-MOD1
+* Changed CCCD from standrad 2902 prefix to 2901 prefix
+
 Version 1.12.1
 * Added a new location check for API 28+ (https://github.com/Polidea/RxAndroidBle/pull/747)
 * Fixed requirements for location services check (https://github.com/Polidea/RxAndroidBle/pull/748)

@@ -1,6 +1,3 @@
-apply from: 'dependencies.gradle'
-apply from: 'checkstyle.gradle'
-
 buildscript {
     ext.kotlinVersion = '1.4.32'
     repositories {
@@ -18,6 +15,39 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
+
+plugins {
+    id 'maven-publish'
+}
+
+apply from: 'dependencies.gradle'
+apply from: 'checkstyle.gradle'
+
+
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/konopka90/RxAndroidBle")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            groupId = project.findProperty("GROUP")
+            artifactId = 'rxandroidble'
+            version = project.findProperty("VERSION_NAME")
+
+            // from(components["java"])
+            artifact("rxandroidble/build/outputs/aar/${artifactId}-release.aar")
+        }
+    }
+}
+
 
 allprojects {
     apply plugin: 'com.github.ben-manes.versions'
